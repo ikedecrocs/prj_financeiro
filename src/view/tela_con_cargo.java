@@ -3,8 +3,13 @@ package view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import control.Funcionario_Controler;
+import model.Funcionario;
 
 public class tela_con_cargo extends JDialog{
 	
@@ -38,13 +43,30 @@ public class tela_con_cargo extends JDialog{
 		rolagem.setBounds(20, 125, 234, 125);
 					
 		//eventos
-		acao.addActionListener(
-		        new ActionListener() {
-		            public void actionPerformed( ActionEvent e ) {
-		               //inserir metodo consultar
-		            }
-		         }
-		);
+		acao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					System.out.println(pesquisa.getText());
+					DefaultTableModel modelo = new DefaultTableModel();
+					modelo.addColumn("nome");
+					modelo.addColumn("fk_cargo");
+					modelo.addColumn("cpf");
+					modelo.addColumn("salario");
+					modelo.addColumn("bancoHora");
+					modelo.addColumn("dependentes");
+					control.Funcionario_Controler c = new Funcionario_Controler();
+					Funcionario[] f = c.getAll();
+					for (int i = 0; i < f.length; i++) {
+						Object linha[] = { f[i].getNome(), f[i].getFk_cargo(), f[i].getCpf(), f[i].getSalario(),f[i].getBanco_Horas(), f[i].getDependentes() };
+						if(pesquisa.getText().contains(""+f[i].getFk_cargo())||pesquisa.getText().length()==0) {
+							modelo.addRow(linha);
+						}
+					}
+					lista.setModel(modelo);
+				} catch (IOException e2) {
+				}
+			}
+		});
 		
 		//add no container
 		tela.add(titulo);
