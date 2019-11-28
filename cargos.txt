@@ -1,0 +1,6 @@
+0;fon
+1;Gerente
+2;get
+3;Helicoptero de ataque
+4;admin
+5;Diretor
