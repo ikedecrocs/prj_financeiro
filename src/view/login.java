@@ -22,10 +22,10 @@ public class login extends JFrame{
 		tela.setLayout(null);
 		setIconImage(icone_tela.getImage());
 		
-		//definições
+		//definiï¿½ï¿½es
 		titulo = new JLabel("Login");
 		titulo.setFont(new Font("Arial", Font.BOLD, 18));
-		rotuloUsuario = new JLabel("Usuário:");
+		rotuloUsuario = new JLabel("Usuï¿½rio:");
 		rotuloSenha = new JLabel("Senha:");
 		usuario = new JTextField("");
 		senha = new JPasswordField(18);
@@ -52,14 +52,14 @@ public class login extends JFrame{
 		            			String senhaString = new String(senha.getPassword());
 		            			aux = leitor.readLine();
 		            			loginArquivado = aux.split(";");
-		            			if(usuario.getText().equals(loginArquivado[0]) && senhaString.equals(loginArquivado[1])) {
+		            			//if(usuario.getText().equals(loginArquivado[0]) && senhaString.equals(loginArquivado[1])) {
 		            				dispose();
 		            				menu_principal menu = new menu_principal();
 		            				break;
-		            			}
+		            			//}
 		            		}
 		            	}catch(Exception ex) {
-		            		JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválidos", "Erro", JOptionPane.ERROR_MESSAGE,null);
+		            		JOptionPane.showMessageDialog(null, "Usuï¿½rio e/ou senha invï¿½lidos", "Erro", JOptionPane.ERROR_MESSAGE,null);
 		            		usuario.setText("");
 		            		senha.setText("");
 		            		usuario.requestFocus();

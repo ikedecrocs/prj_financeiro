@@ -11,7 +11,7 @@ public class tela_con_cargo extends JDialog{
 	JLabel titulo;
 	JTextField pesquisa;
 	JButton acao;
-	JList lista;
+	JTable lista;
 	String[] teste = {"1", "2", "3", "4", "5", "6"}; //variavel de teste, inserir <List> depois
 	
 	public tela_con_cargo(Frame dono, boolean modal) {
@@ -22,11 +22,10 @@ public class tela_con_cargo extends JDialog{
 		tela.setLayout(null);
 		setIconImage(icone_tela.getImage());
 		
-		//definições
+		//definiï¿½ï¿½es
 		pesquisa = new JTextField("");
 		acao = new JButton("Consultar");
-		lista = new JList(teste);
-		lista.setVisibleRowCount(5);
+		lista = new JTable();
 		JScrollPane rolagem = new JScrollPane(lista);
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		titulo = new JLabel("Consulta por Cargo");
